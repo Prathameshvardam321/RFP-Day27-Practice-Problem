@@ -4,8 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static com.bridgelabz.EmployeePayrollService.IOService.CONSOLE_IO;
+import static com.bridgelabz.EmployeePayrollService.IOService.FILE_IO;
+
 
 public class EmployeePayrollService {
+
     public enum IOService{CONSOLE_IO,FILE_IO,DATABASE_IO};
     private List<EmployeePayroll> employeePayrollList ;
 
@@ -15,7 +19,7 @@ public class EmployeePayrollService {
     public EmployeePayrollService(){
 
     }
-    private void readEmployeePayRollData(Scanner consoleInputReader){
+    public void readEmployeePayRollData(Scanner consoleInputReader){
         System.out.println("Enter Employee id : ");
         int id = consoleInputReader.nextInt();
         System.out.println("Enter Employee name : ");
@@ -24,9 +28,12 @@ public class EmployeePayrollService {
         double salary = consoleInputReader.nextDouble();
         employeePayrollList.add(new EmployeePayroll(id,name,salary));
     }
-    private void writeEmployeePayRollData(){
-        System.out.println("\nWriting employee payroll Roaster to console \n"+employeePayrollList);
-
+    public void writeEmployeePayrollData(IOService ioService) {
+        if(ioService.equals(CONSOLE_IO)){
+            System.out.println("Writing Employee Payroll Data to Console\n " + employeePayrollList );
+        } else if (ioService.equals(IOService.FILE_IO)) {
+            new EmployeePayrollIOService().writeData(employeePayrollList);
+        }
     }
     public static void main(String[] args) {
         ArrayList<EmployeePayroll> arrayList = new ArrayList<>();
@@ -34,6 +41,6 @@ public class EmployeePayrollService {
         Scanner consoleInputReader = new Scanner(System.in);
         employeePayrollService.readEmployeePayRollData(consoleInputReader);
         employeePayrollService.readEmployeePayRollData(consoleInputReader);
-        employeePayrollService.writeEmployeePayRollData();
+        employeePayrollService.writeEmployeePayrollData(FILE_IO);
     }
 }
