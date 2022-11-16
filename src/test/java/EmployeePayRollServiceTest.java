@@ -17,6 +17,7 @@ public class EmployeePayRollServiceTest {
         employeePayrollService = new EmployeePayrollService(Arrays.asList(payRollServiceTests
         ));
         employeePayrollService.writeEmployeePayrollData(EmployeePayrollService.IOService.FILE_IO);
+        employeePayrollService.printEmployeePayrollData(EmployeePayrollService.IOService.FILE_IO);
     }
 
 }

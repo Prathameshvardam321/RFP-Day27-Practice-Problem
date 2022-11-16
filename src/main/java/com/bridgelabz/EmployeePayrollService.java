@@ -19,6 +19,12 @@ public class EmployeePayrollService {
     public EmployeePayrollService(){
 
     }
+    public void printEmployeePayrollData(IOService ioService){
+        if (ioService.equals(FILE_IO)){
+            new EmployeePayrollIOService().printData();
+        }
+    }
+
     public void readEmployeePayRollData(Scanner consoleInputReader){
         System.out.println("Enter Employee id : ");
         int id = consoleInputReader.nextInt();
