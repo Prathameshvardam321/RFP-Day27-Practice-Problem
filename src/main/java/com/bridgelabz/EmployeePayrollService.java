@@ -3,11 +3,8 @@ package com.bridgelabz;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import static com.bridgelabz.EmployeePayrollService.IOService.CONSOLE_IO;
 import static com.bridgelabz.EmployeePayrollService.IOService.FILE_IO;
-
-
 public class EmployeePayrollService {
 
     public enum IOService{CONSOLE_IO,FILE_IO,DATABASE_IO};
@@ -41,6 +38,7 @@ public class EmployeePayrollService {
             new EmployeePayrollIOService().writeData(employeePayrollList);
         }
     }
+
     public static void main(String[] args) {
         ArrayList<EmployeePayroll> arrayList = new ArrayList<>();
         EmployeePayrollService employeePayrollService = new EmployeePayrollService(arrayList);

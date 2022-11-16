@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.Arrays;
 
 public class EmployeePayRollServiceTest {
+
     @Test
     public void givenThreeEmployee_WhenWrittenToFile_ShouldMatchEmployeeEntries(){
         EmployeePayroll[] payRollServiceTests = {
