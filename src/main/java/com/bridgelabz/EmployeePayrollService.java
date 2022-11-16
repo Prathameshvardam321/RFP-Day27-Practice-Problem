@@ -38,6 +38,12 @@ public class EmployeePayrollService {
             new EmployeePayrollIOService().writeData(employeePayrollList);
         }
     }
+    public long countEntries(IOService ioService){
+        if (ioService.equals(FILE_IO)){
+            return new EmployeePayrollIOService().countEntries();
+        }
+        return 0;
+    }
 
     public static void main(String[] args) {
         ArrayList<EmployeePayroll> arrayList = new ArrayList<>();

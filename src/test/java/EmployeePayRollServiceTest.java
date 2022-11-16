@@ -1,6 +1,7 @@
 import com.bridgelabz.EmployeePayroll;
 import com.bridgelabz.EmployeePayrollIOService;
 import com.bridgelabz.EmployeePayrollService;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -19,6 +20,14 @@ public class EmployeePayRollServiceTest {
         ));
         employeePayrollService.writeEmployeePayrollData(EmployeePayrollService.IOService.FILE_IO);
         employeePayrollService.printEmployeePayrollData(EmployeePayrollService.IOService.FILE_IO);
+        long entry = employeePayrollService.countEntries(EmployeePayrollService.IOService.FILE_IO);
+        Assert.assertEquals(3,entry);
+    }
+    @Test
+    public void method_Should_Return_Entries_On_Reading_From_File(){
+        EmployeePayrollService employeePayrollService = new EmployeePayrollService();
+        long entry = employeePayrollService.countEntries(EmployeePayrollService.IOService.FILE_IO);
+        Assert.assertEquals(3,entry);
     }
 
 }

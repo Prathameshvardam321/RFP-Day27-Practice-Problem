@@ -21,6 +21,17 @@ public class EmployeePayrollIOService {
            e.printStackTrace();
         }
     }
+
+    public long countEntries() {
+        long entries = 0;
+        try {
+            entries = Files.lines(new File(FILE_NAME).toPath())
+                    .count();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        return entries;
+    }
     public void printData(){
         try {
         Files.lines(new File(FILE_NAME).toPath()).forEach(System.out::println);
